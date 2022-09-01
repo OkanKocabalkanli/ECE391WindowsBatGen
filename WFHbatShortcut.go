@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 func createBat(qemuPath string, qcowPath string, name string, isKernal bool, gdb bool) {
@@ -35,7 +36,8 @@ func main() {
 	var wfhDir string
 	fmt.Println("Enter Path of your ece391_share folder")
 	fmt.Scanln(&wfhDir)
-
+	wfhDir = strings.Replace(wfhDir,`\`,"\\",-1) + "\\"
+	fmt.Println(wfhDir)
 	var qemuPath string
 	qemuPath = wfhDir + "qemu_win"
 	fmt.Println(qemuPath)
